@@ -1,3 +1,74 @@
+ // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const navLinks = document.getElementById('navLinks');
+        const menuIcon = document.getElementById('menuIcon');
+
+        mobileMenuBtn.addEventListener('click', function() {
+            navLinks.classList.toggle('active');
+            menuIcon.classList.toggle('fa-bars');
+            menuIcon.classList.toggle('fa-times');
+        });
+
+        // Dropdown toggle for mobile
+        const dropdowns = document.querySelectorAll('.dropdown');
+        const submenus = document.querySelectorAll('.dropdown-submenu');
+
+        dropdowns.forEach(dropdown => {
+            const toggle = dropdown.querySelector('.dropdown-toggle');
+            
+            toggle.addEventListener('click', function(e) {
+                if (window.innerWidth <= 992) {
+                    e.preventDefault();
+                    dropdown.classList.toggle('active');
+                    
+                    // Close other dropdowns
+                    dropdowns.forEach(otherDropdown => {
+                        if (otherDropdown !== dropdown) {
+                            otherDropdown.classList.remove('active');
+                        }
+                    });
+                }
+            });
+        });
+
+        submenus.forEach(submenu => {
+            const toggle = submenu.querySelector('.submenu-toggle');
+            
+            toggle.addEventListener('click', function(e) {
+                if (window.innerWidth <= 992) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    submenu.classList.toggle('active');
+                }
+            });
+        });
+
+        // Close menu when clicking outside on mobile
+        document.addEventListener('click', function(e) {
+            if (window.innerWidth <= 992) {
+                if (!navLinks.contains(e.target) && !mobileMenuBtn.contains(e.target)) {
+                    navLinks.classList.remove('active');
+                    menuIcon.classList.remove('fa-times');
+                    menuIcon.classList.add('fa-bars');
+                    dropdowns.forEach(dropdown => dropdown.classList.remove('active'));
+                    submenus.forEach(submenu => submenu.classList.remove('active'));
+                }
+            }
+        });
+
+        // Resize observer to reset menu state when switching between mobile and desktop
+        window.addEventListener('resize', function() {
+            if (window.innerWidth > 992) {
+                navLinks.classList.remove('active');
+                menuIcon.classList.remove('fa-times');
+                menuIcon.classList.add('fa-bars');
+                dropdowns.forEach(dropdown => dropdown.classList.remove('active'));
+                submenus.forEach(submenu => submenu.classList.remove('active'));
+            }
+        });    
+    
+    
+    
     // Search Box Focus Effect
         const searchBox = document.getElementById('searchBox');
         const searchInput = document.getElementById('searchInput');
