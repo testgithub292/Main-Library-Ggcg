@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library Books Management</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="books.css">
+   
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="../index.html" class="logo">
+                <i class="fas fa-cube"></i>
+                <span>Main Library</span>
+            </a>
+
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars" id="menuIcon"></i>
+            </button>
+
+            <div class="nav-links" id="navLinks">
+                <a href="../index.html">Home</a>
+                <a href="../books/books.html">All Library Books</a>
+                
+                <!-- <div class="dropdown" id="servicesDropdown">
+                    <a href="#" class="dropdown-toggle">Services <i class="fas fa-chevron-down dropdown-icon"></i></a>
+                    <div class="dropdown-content">
+                        <a href="#">Web Design</a>
+                        <a href="#">App Development</a>
+                        <div class="dropdown-submenu" id="digitalMarketingSubmenu">
+                            <a href="#" class="submenu-toggle">Digital Marketing <i class="fas fa-chevron-right"></i></a>
+                            <div class="dropdown-subcontent">
+                                <a href="#">SEO Services</a>
+                                <a href="#">Social Media</a>
+                                <a href="#">PPC Campaigns</a>
+                            </div>
+                        </div>
+                        <a href="#">UI/UX Design</a>
+                    </div>
+                </div> -->
+                
+                <!-- <div class="dropdown" id="productsDropdown">
+                    <a href="#" class="dropdown-toggle">Products <i class="fas fa-chevron-down dropdown-icon"></i></a>
+                    <div class="dropdown-content">
+                        <a href="#">Software Solutions</a>
+                        <div class="dropdown-submenu" id="cloudServicesSubmenu">
+                            <a href="#" class="submenu-toggle">Cloud Services <i class="fas fa-chevron-right"></i></a>
+                            <div class="dropdown-subcontent">
+                                <a href="#">Hosting</a>
+                                <a href="#">Storage</a>
+                                <a href="#">Database</a>
+                            </div>
+                        </div>
+                        <a href="#">Mobile Apps</a>
+                    </div>
+                </div> -->
+                
+                <!-- <a href="#">About</a> -->
+                <a href="mailto:mainlibraryggcg@gmail.com">Contact</a>  
+                <!-- <a href="#" class="cta-button">Get Started</a> -->
+            </div>
+        </div>
+    </nav>
+
+<section style="background-color: #f8fafc;" id="table-section">
+
+
+    <div class="container2">
+        <div class="header">
+            <h1>Library Books Management</h1>
+            <p>Browse and manage all books in the library</p>
+        </div>
+
+        <div class="search-section">
+            <div class="search-bar">
+                <div class="search-input">
+                    <i class="fas fa-search"></i>
+                    <input type="text" id="searchInput" placeholder="Search by title, author, accession number...">
+                    <button class="clear-search" id="clearSearch">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+                <button class="btn btn-primary" id="searchBtn">
+                    <i class="fas fa-search"></i> Search
+                </button>
+            </div>
+            
+            <div class="filter-section">
+                <div class="filter-group">
+                    <label for="categoryFilter">Category</label>
+                    <select id="categoryFilter">
+                        <option value="">All Categories</option>
+                        <option value="Fiction">Fiction</option>
+                        <option value="Non-Fiction">Non-Fiction</option>
+                        <option value="Science">Science</option>
+                        <option value="History">History</option>
+                        <option value="Biography">Biography</option>
+                    </select>
+                </div>
+                
+                <div class="filter-group">
+                    <label for="statusFilter">Status</label>
+                    <select id="statusFilter">
+                        <option value="">All Statuses</option>
+                        <option value="Available">Available</option>
+                        <option value="Checked Out">Checked Out</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        
+        <div class="table-container">
+            <table id="booksTable">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Accession No.</th>
+                        <th>Title</th>
+                        <th>Author</th>
+                        <th>Subject</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Book data in regular table rows -->
+                    <tr>
+                        <td>1</td>
+                        <td>ACC001</td>
+                        <td>The Great Gatsby</td>
+                        <td>F. Scott Fitzgerald</td>
+                        <td>Classic Literature</td>
+                        <td><span class="status available">Available</span></td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>ACC002</td>
+                        <td>To Kill a Mockingbird</td>
+                        <td>Harper Lee</td>
+                        <td>Classic Literature</td>
+                        <td><span class="status checked-out">Checked Out</span></td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>ACC003</td>
+                        <td>1984</td>
+                        <td>George Orwell</td>
+                        <td>Dystopian Fiction</td>
+                        <td><span class="status available">Available</span></td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td>ACC004</td>
+                        <td>The Silent Patient</td>
+                        <td>Alex Michaelides</td>
+                        <td>Psychological Thriller</td>
+                        <td><span class="status available">Available</span></td>
+                    </tr>
+                    <tr>
+                        <td>5</td>
+                        <td>ACC005</td>
+                        <td>Sapiens: A Brief History of Humankind</td>
+                        <td>Yuval Noah Harari</td>
+                        <td>Anthropology</td>
+                        <td><span class="status checked-out">Checked Out</span></td>
+                    </tr>
+                    <tr>
+                        <td>6</td>
+                        <td>ACC006</td>
+                        <td>The Hobbit</td>
+                        <td>J.R.R. Tolkien</td>
+                        <td>Fantasy</td>
+                        <td><span class="status available">Available</span></td>
+                    </tr>
+                    <tr>
+                        <td>7</td>
+                        <td>ACC007</td>
+                        <td>Atomic Habits</td>
+                        <td>James Clear</td>
+                        <td>Self-Improvement</td>
+                        <td><span class="status available">Available</span></td>
+                    </tr>
+                    <tr>
+                        <td>8</td>
+                        <td>ACC008</td>
+                        <td>The Psychology of Money</td>
+                        <td>Morgan Housel</td>
+                        <td>Finance</td>
+                        <td><span class="status checked-out">Checked Out</span></td>
+                    </tr>
+                    <tr>
+                        <td>9</td>
+                        <td>ACC009</td>
+                        <td>Educated</td>
+                        <td>Tara Westover</td>
+                        <td>Memoir</td>
+                        <td><span class="status available">Available</span></td>
+                    </tr>
+                    <tr>
+                        <td>10</td>
+                        <td>ACC010</td>
+                        <td>The Midnight Library</td>
+                        <td>Matt Haig</td>
+                        <td>Fiction</td>
+                        <td><span class="status available">Available</span></td>
+                    </tr>
+                    <tr>
+                        <td>11</td>
+                        <td>ACC011</td>
+                        <td>Thinking, Fast and Slow</td>
+                        <td>Daniel Kahneman</td>
+                        <td>Psychology</td>
+                        <td><span class="status available">Available</span></td>
+                    </tr>
+                    <tr>
+                        <td>12</td>
+                        <td>ACC012</td>
+                        <td>The Alchemist</td>
+                        <td>Paulo Coelho</td>
+                        <td>Philosophical Fiction</td>
+                        <td><span class="status checked-out">Checked Out</span></td>
+                    </tr>
+                    <tr>
+                        <td>13</td>
+                        <td>ACC013</td>
+                        <td>The Power of Now</td>
+                        <td>Eckhart Tolle</td>
+                        <td>Spirituality</td>
+                        <td><span class="status available">Available</span></td>
+                    </tr>
+                    <tr>
+                        <td>14</td>
+                        <td>ACC014</td>
+                        <td>The Four Agreements</td>
+                        <td>Don Miguel Ruiz</td>
+                        <td>Self-Help</td>
+                        <td><span class="status available">Available</span></td>
+                    </tr>
+                    <tr>
+                        <td>15</td>
+                        <td>ACC015</td>
+                        <td>The Subtle Art of Not Giving a F*ck</td>
+                        <td>Mark Manson</td>
+                        <td>Self-Help</td>
+                        <td><span class="status checked-out">Checked Out</span></td>
+                    </tr>
+                    <tr>
+                        <td>16</td>
+                        <td>ACC016</td>
+                        <td>Deep Work</td>
+                        <td>Cal Newport</td>
+                        <td>Productivity</td>
+                        <td><span class="status available">Available</span></td>
+                    </tr>
+                    <tr>
+                        <td>17</td>
+                        <td>ACC017</td>
+                        <td>The 7 Habits of Highly Effective People</td>
+                        <td>Stephen R. Covey</td>
+                        <td>Self-Improvement</td>
+                        <td><span class="status available">Available</span></td>
+                    </tr>
+                    <tr>
+                        <td>18</td>
+                        <td>ACC018</td>
+                        <td>The Intelligent Investor</td>
+                        <td>Benjamin Graham</td>
+                        <td>Investing</td>
+                        <td><span class="status checked-out">Checked Out</span></td>
+                    </tr>
+                    <tr>
+                        <td>19</td>
+                        <td>ACC019</td>
+                        <td>Rich Dad Poor Dad</td>
+                        <td>Robert Kiyosaki</td>
+                        <td>Personal Finance</td>
+                        <td><span class="status available">Available</span></td>
+                    </tr>
+                    <tr>
+                        <td>20</td>
+                        <td>ACC020</td>
+                        <td>The Lean Startup</td>
+                        <td>Eric Ries</td>
+                        <td>Business</td>
+                        <td><span class="status available">Available</span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        
+        <div class="pagination">
+            <div class="rows-selector">
+                <span>Rows per page:</span>
+                <select id="rowsPerPage">
+                    <option value="10" selected>10</option>
+                    <option value="25">25</option>
+                    <option value="50">50</option>
+                    <option value="100">100</option>
+                </select>
+            </div>
+            
+            <div class="page-info">
+                Showing <span id="startRow">1</span> to <span id="endRow">10</span> of <span id="totalRows">20</span> entries
+            </div>
+            
+            <div class="page-controls">
+                <button class="btn btn-outline btn-sm" id="prevBtn" disabled>
+                    <i class="fas fa-chevron-left"></i> Previous
+                </button>
+                <button class="btn btn-outline btn-sm" id="nextBtn">
+                    Next <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
+        </div>
+        
+        <!-- <div class="search-section">
+            <div class="search-bar">
+                <div class="search-input">
+                    <i class="fas fa-search"></i>
+                    <input type="text" id="searchInput" placeholder="Search by title, author, accession number...">
+                    <button class="clear-search" id="clearSearch">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+                <button class="btn btn-primary" id="searchBtn">
+                    <i class="fas fa-search"></i> Search
+                </button>
+            </div>
+            
+            <div class="filter-section">
+                <div class="filter-group">
+                    <label for="categoryFilter">Category</label>
+                    <select id="categoryFilter">
+                        <option value="">All Categories</option>
+                        <option value="Fiction">Fiction</option>
+                        <option value="Non-Fiction">Non-Fiction</option>
+                        <option value="Science">Science</option>
+                        <option value="History">History</option>
+                        <option value="Biography">Biography</option>
+                    </select>
+                </div>
+                
+                <div class="filter-group">
+                    <label for="statusFilter">Status</label>
+                    <select id="statusFilter">
+                        <option value="">All Statuses</option>
+                        <option value="Available">Available</option>
+                        <option value="Checked Out">Checked Out</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        
+        <div class="table-container">
+            <table id="booksTable">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Accession No.</th>
+                        <th>Title</th>
+                        <th>Author</th>
+                        <th>Subject</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <! Data will be populated by JavaScript -
+                </tbody>
+            </table>
+        </div>
+        
+        <div class="pagination">
+            <div class="rows-selector">
+                <span>Rows per page:</span>
+                <select id="rowsPerPage">
+                    <option value="10" selected>10</option>
+                    <option value="25">25</option>
+                    <option value="50">50</option>
+                    <option value="100">100</option>
+                </select>
+            </div>
+            
+            <div class="page-info">
+                Showing <span id="startRow">1</span> to <span id="endRow">10</span> of <span id="totalRows">100</span> entries
+            </div>
+            
+            <div class="page-controls">
+                <button class="btn btn-outline btn-sm" id="prevBtn" disabled>
+                    <i class="fas fa-chevron-left"></i> Previous
+                </button>
+                <button class="btn btn-outline btn-sm" id="nextBtn">
+                    Next <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
+        </div>
+    </div> -->
+
+</section>
+    
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container_footer">
+            <div class="row g-4">
+                <div class="col-lg-3">
+                    <h5 class="text-white mb-4">BookVerse</h5>
+                    <p>Premier academic resource center providing cutting-edge learning materials and research support.</p>
+                    <div class="social-links mt-4">
+                        <a href="#" class="text-white me-3"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="text-white me-3"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-white me-3"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-white"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                
+                <!-- College Principal -->
+                <div class="col-lg-3">
+                    <div class="info-card text-center h-100">
+                        <img src="../images/principal image.jpg" alt="Principal">
+                        <h6 class="text-white mt-2 mb-1">Dr. Sarah Johnson</h6>
+                        <p class="small pt-3">College Principal</p>
+                        <p class="small">admin@ggcg.edu.pk</p>
+                    </div>
+                </div>
+                
+                <!-- Library Incharge -->
+                <div class="col-lg-3">
+                    <div class="info-card text-center h-100">
+                        <img src="../images/lala g.png" alt="Library Incharge">
+                        <h6 class="text-white mt-2 mb-1">Ijaz Ahmad Khan</h6>
+                        <p class="small pt-3">Library Incharge</p>
+                        <p class="small">mainlibraryggcg@gmail.com</p>
+                    </div>
+                </div>
+                
+                <!-- Developer -->
+                <div class="col-lg-3">
+                    <div class="info-card text-center h-100">
+                        <img src="../images/zain img.jpg" alt="Developer">
+                        <h6 class="text-white mt-2 mb-1">Muhammad Zain</h6>
+                        <p class="small pt-3">Systems Developer</p>
+                        <p class="small">m.zain.298.786@gmail.com</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <div class="row align-items-center">
+                    <div class="col-12 text-center">
+                        <p class="mb-0 small">&copy; 2023 BookVerse Digital Library. All rights reserved.</p>
+                    </div>
+                    <!-- <div class="col-md-6 text-md-end">
+                        <a href="#" class="text-white small me-3">Privacy Policy</a>
+                        <a href="#" class="text-white small me-3">Terms of Service</a>
+                        <a href="#" class="text-white small">Contact</a>
+                    </div> -->
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="books.js">
+    
+    </script>
+</body>
+</html>
