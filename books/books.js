@@ -374,3 +374,44 @@ document.addEventListener('DOMContentLoaded', function() {
     // Initial render
     renderTable();
 });
+
+
+
+/*---------------=============================================================*/
+
+document.querySelector('.btn-export-excel').addEventListener('click', function () {
+    let table = document.querySelector('table').cloneNode(true);
+    table.querySelectorAll('*').forEach(el => el.removeAttribute('style'));
+    let wb = XLSX.utils.table_to_book(table, { sheet: "Library Books" });
+    XLSX.writeFile(wb, "LibraryBooks.xlsx");
+});
+
+document.querySelector('.btn-export-word').addEventListener('click', function () {
+    let table = document.querySelector('table').cloneNode(true);
+    table.querySelectorAll('*').forEach(el => el.removeAttribute('style'));
+
+    let html = `
+        <html xmlns:o='urn:schemas-microsoft-com:office:office'
+              xmlns:w='urn:schemas-microsoft-com:office:word'
+              xmlns='http://www.w3.org/TR/REC-html40'>
+        <head><meta charset='utf-8'><title>Export Table</title></head>
+        <body>${table.outerHTML}</body></html>
+    `;
+    let blob = new Blob(['\ufeff', html], { type: 'application/msword' });
+    saveAs(blob, 'LibraryBooks.doc');
+});
+
+document.querySelector('.btn-export-pdf').addEventListener('click', function () {
+    const { jsPDF } = window.jspdf;
+    let doc = new jsPDF();
+
+    doc.text("Library Books", 14, 15);
+    doc.autoTable({
+        html: 'table',
+        startY: 20,
+        styles: { fontSize: 10, halign: 'center', valign: 'middle' },
+        headStyles: { fillColor: [63, 81, 181] }
+    });
+
+    doc.save('LibraryBooks.pdf');
+});

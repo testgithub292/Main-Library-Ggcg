@@ -429,6 +429,7 @@ transform-origin: left center; /* Add this */
 .search-section {
     padding: 1.5rem;
     border-bottom: 1px solid var(--light-gray);
+    padding-bottom: 10px;
 }
 
 .search-bar {
@@ -677,5 +678,48 @@ tr:hover {
     
     .btn {
         padding: 0.5rem 0.75rem;
+    }
+}
+
+
+
+.export-buttons-container {
+    display: flex;
+    flex-wrap: wrap; /* Mobile me automatic neeche chale jaye */
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.btn-export-excel, .btn-export-word, .btn-export-pdf {
+    flex: 1 1 auto; /* Buttons ko flexible width do */
+    min-width: 120px; /* Mobile par chhote na ho */
+    text-align: center;
+    color: white;
+    padding: 10px 16px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 500;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+/* Button colors */
+.btn-export-excel { background-color: #4CAF50; }
+.btn-export-word { background-color: #2196F3; }
+.btn-export-pdf { background-color: #E53935; }
+
+/* Hover effect */
+.btn-export-excel:hover { background-color: #45a049; transform: scale(1.05); }
+.btn-export-word:hover { background-color: #1976d2; transform: scale(1.05); }
+.btn-export-pdf:hover { background-color: #c62828; transform: scale(1.05); }
+
+/* Mobile optimization */
+@media (max-width: 600px) {
+    .export-buttons-container {
+        flex-direction: column; /* Mobile me vertical layout */
+        align-items: stretch;
     }
 }
